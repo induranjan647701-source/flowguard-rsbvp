@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b2b">
+<title>FLOWGUARD | RSBVP 2026–27 Project</title>
+<style>
+:root{--bg:#061521;--panel:#0d2638;--panel2:#12364d;--text:#f1f8fc;--muted:#afc4d0;--cyan:#56e0e8;--blue:#6aaeff;--green:#62e0ac;--gold:#ffd477;--line:#28516a;--violet:#a89bff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#123b50 0%,transparent 34%),linear-gradient(180deg,#061521,#092338 55%,#061521);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#071b2beF;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:900;letter-spacing:1.5px;font-size:1.12rem}.brand span{color:var(--cyan)}nav{display:flex;gap:20px;flex-wrap:wrap}nav a{font-size:.88rem;color:var(--muted)}nav a:hover{color:var(--cyan)}
+.hero{padding:92px 0 76px;display:grid;grid-template-columns:1.15fr .85fr;gap:42px;align-items:center}.eyebrow{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:2px;text-transform:uppercase}.hero h1{font-size:clamp(2.8rem,7vw,5.6rem);line-height:.98;margin:15px 0 20px;letter-spacing:-3px}.hero h1 span{color:var(--cyan)}.lead{font-size:1.12rem;color:var(--muted);max-width:650px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--cyan);background:var(--cyan);color:#062033;padding:11px 18px;border-radius:12px;font-weight:800;cursor:pointer}.btn.secondary{background:transparent;color:var(--text);border-color:var(--line)}.hero-visual{background:radial-gradient(circle at 50% 30%,#23647b,#0e293d 65%);border:1px solid var(--line);border-radius:28px;padding:25px;min-height:300px;display:grid;place-items:center}.network{width:100%;max-width:420px}
+section{padding:64px 0;scroll-margin-top:76px}.section-head{max-width:720px;margin-bottom:28px}.section-head h2{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.1;margin:8px 0 12px}.section-head p,.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.intro-band{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:stretch}.feature-card{background:linear-gradient(145deg,#12384c,#0a2234);border:1px solid var(--line);border-radius:20px;padding:25px}.feature-card h3{font-size:1.25rem;margin:6px 0 10px}.feature-card p{color:var(--muted);margin:0}.mini-label{font-size:.72rem;letter-spacing:1.7px;text-transform:uppercase;color:var(--cyan);font-weight:800}.school-mark{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:#16465c;color:var(--cyan);font-size:1.45rem;font-weight:900;margin-bottom:12px}.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.person{position:relative;overflow:hidden;background:linear-gradient(150deg,#12354a,#0a2030);border:1px solid var(--line);border-radius:20px;padding:24px}.person:before{content:"";position:absolute;width:130px;height:130px;border-radius:50%;right:-50px;top:-55px;background:#56e0e814}.person .initials{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,#1c7182,#315b91);font-weight:900;font-size:1.15rem;margin-bottom:18px}.person h3{margin:0 0 5px;font-size:1.18rem}.person .classline{color:var(--muted);font-size:.9rem}.role{display:inline-block;margin-top:15px;padding:6px 11px;border-radius:999px;background:#17475a;color:var(--cyan);font-size:.76rem;font-weight:800;letter-spacing:.4px}.role.leader{background:#493d1d;color:var(--gold)}.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.step{padding:15px;border:1px solid var(--line);border-radius:14px;background:#081d2c}.step b{display:block;color:var(--cyan);margin-bottom:5px}.step span{font-size:.86rem;color:var(--muted)}.school-line{display:flex;gap:16px;align-items:flex-start}.school-line .school-mark{flex:0 0 54px}.card{background:linear-gradient(145deg,var(--panel),#0a2234);border:1px solid var(--line);border-radius:18px;padding:21px}.card h3{margin:8px 0}.icon{font-size:1.6rem}.pill{display:inline-block;padding:5px 10px;border-radius:999px;background:#123c50;color:var(--cyan);font-size:.76rem;font-weight:800}
+.formula{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;background:#061725;border:1px solid var(--line);padding:15px;border-radius:12px;overflow-x:auto;color:#b7f3f5}
+.sim-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px}.control label{display:flex;justify-content:space-between;gap:10px;font-weight:700;margin:14px 0 6px}.control input[type=range]{width:100%;accent-color:var(--cyan)}.number{font-variant-numeric:tabular-nums;color:var(--cyan)}.small{font-size:.84rem;color:var(--muted)}.method-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.tab{border:1px solid var(--line);background:#0a2234;color:var(--muted);padding:8px 12px;border-radius:10px;cursor:pointer}.tab.active{background:#16445b;color:white;border-color:var(--cyan)}
+.result-row{display:grid;grid-template-columns:92px 1fr 66px;gap:10px;align-items:center;margin:14px 0}.bar{height:13px;background:#19394d;border-radius:99px;overflow:hidden}.fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .25s}.result-row strong{text-align:right;font-variant-numeric:tabular-nums}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}.stat{background:#071b2b;border:1px solid var(--line);padding:12px;border-radius:12px}.stat b{display:block;font-size:1.35rem;color:var(--cyan)}.stat span{font-size:.76rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:.9rem}th,td{text-align:right;padding:11px 9px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}th:first-child,td:first-child{text-align:left}th{color:var(--muted);font-weight:700}.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+.notice{border-left:3px solid var(--gold);padding:12px 15px;background:#302b1c55;border-radius:0 10px 10px 0;color:#f4dfaa;font-size:.9rem}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:.85rem}.footer-row{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:55px}.grid,.team-grid{grid-template-columns:1fr}.intro-band{grid-template-columns:1fr}.timeline{grid-template-columns:1fr}.sim-layout{grid-template-columns:1fr}nav{gap:10px}nav a{font-size:.78rem}.hero-visual{min-height:230px}}
+@media(max-width:480px){.nav{align-items:flex-start;padding:14px 0;flex-direction:column}nav{width:100%;overflow:auto;flex-wrap:nowrap;padding-bottom:4px}.hero h1{letter-spacing:-2px}.stats{grid-template-columns:1fr}.result-row{grid-template-columns:72px 1fr 58px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><a class="brand" href="#home">FLOW<span>GUARD</span></a><nav><a href="#rsbvp">About RSBVP</a><a href="#school">Our School</a><a href="#problem">Problem</a><a href="#model">Model</a><a href="#simulator">Simulator</a><a href="#team">Our Team</a></nav></div></header>
+<main>
+<section class="wrap hero" id="home">
+<div><div class="eyebrow">RSBVP 2026–27 · Student Innovation Project</div><h1>Make every<br><span>litre count.</span></h1><p class="lead">FLOWGUARD is a student-developed mathematical water-allocation model. It explores how a limited water supply can be shared among households with different needs through clear rules, computational thinking and evidence-based testing.</p><div class="actions"><a class="btn" href="#simulator">Try the simulator ↗</a><a class="btn secondary" href="#model">Explore the model</a></div></div>
+<div class="hero-visual">
+<svg class="network" viewBox="0 0 440 280" role="img" aria-label="Illustration of a reservoir connected to four household outlets">
+<defs><linearGradient id="water" x1="0" x2="1"><stop stop-color="#4f9cff"/><stop offset="1" stop-color="#43d5e8"/></linearGradient></defs>
+<rect x="150" y="12" width="140" height="62" rx="13" fill="#123f59" stroke="#43d5e8" stroke-width="2"/><path d="M160 48 Q180 38 200 48 T240 48 T280 48 V63 H160Z" fill="url(#water)" opacity=".8"/><text x="220" y="34" fill="#edf7fb" text-anchor="middle" font-size="12" font-weight="700">MAIN RESERVOIR</text>
+<path d="M220 74 V112 M55 112 H385 M55 112 V173 M165 112 V173 M275 112 V173 M385 112 V173" fill="none" stroke="#43d5e8" stroke-width="5" stroke-linecap="round"/>
+<g fill="#0e293d" stroke="#4f9cff" stroke-width="2"><rect x="20" y="173" width="70" height="64" rx="10"/><rect x="130" y="173" width="70" height="64" rx="10"/><rect x="240" y="173" width="70" height="64" rx="10"/><rect x="350" y="173" width="70" height="64" rx="10"/></g>
+<g fill="#edf7fb" font-size="13" text-anchor="middle" font-weight="700"><text x="55" y="199">HOME A</text><text x="165" y="199">HOME B</text><text x="275" y="199">HOME C</text><text x="385" y="199">HOME D</text></g>
+<g fill="#43d5e8"><circle cx="55" cy="218" r="5"/><circle cx="165" cy="218" r="5"/><circle cx="275" cy="218" r="5"/><circle cx="385" cy="218" r="5"/></g>
+<text x="220" y="265" fill="#a9c2cf" font-size="11" text-anchor="middle">A model network for testing allocation rules</text></svg>
+</div>
+</section>
+<section id="rsbvp">
+<div class="wrap">
+  <div class="section-head">
+    <div class="eyebrow">The platform · RSBVP 2026–27</div>
+    <h2>A platform for young scientific minds</h2>
+    <p>Rajya Stariya Bal Vaigyanik Pradarshani (RSBVP) is a state-level children’s science exhibition. It encourages students to explore real-life challenges, apply scientific and mathematical thinking, and present creative models and solutions. Selected entries from the state-level process may progress for consideration at the national-level Rashtriya Bal Vaigyanik Pradarshani (RBVP).</p>
+  </div>
+  <div class="intro-band">
+    <article class="feature-card">
+      <div class="mini-label">The 2026–27 vision</div>
+      <h3>Science, Technology and Innovation for a Sustainable and Viksit Bharat</h3>
+      <p>RSBVP gives students an opportunity to connect classroom learning with society’s needs. It values curiosity, creativity, careful investigation and practical problem-solving—not just the appearance of a model.</p>
+    </article>
+    <article class="feature-card">
+      <div class="mini-label">Our selected sub-theme</div>
+      <h3>Mathematical Modelling and Computational Thinking</h3>
+      <p>Our project uses mathematical relationships, defined inputs, logical rules and a computational simulator to study a real-world resource-allocation problem.</p>
+      <div class="timeline">
+        <div class="step"><b>01 · Define</b><span>Understand the problem and needs</span></div>
+        <div class="step"><b>02 · Model</b><span>Build rules using mathematics</span></div>
+        <div class="step"><b>03 · Test</b><span>Compare outcomes and improve</span></div>
+      </div>
+    </article>
+  </div>
+  <p class="small" style="margin-top:14px">RSBVP is the state-level exhibition pathway; RBVP is the national-level exhibition organised by NCERT. Details and participation stages follow the current organisers’ guidelines.</p>
+</div>
+</section>
+<section id="school">
+<div class="wrap">
+  <div class="section-head">
+    <div class="eyebrow">The institution behind the project</div>
+    <h2>Our school</h2>
+  </div>
+  <article class="feature-card">
+    <div class="school-line">
+      <div class="school-mark">KV</div>
+      <div>
+        <div class="mini-label">Proudly representing</div>
+        <h3>PM SHRI Kendriya Vidyalaya Hinoo</h3>
+        <p>Hinoo, Ranchi, Jharkhand, India</p>
+        <p style="margin-top:10px">We are students of Class VIII-A, working together to turn classroom learning into a practical investigation. Through FLOWGUARD, we aim to demonstrate how mathematics and computational thinking can help examine fair and responsible use of an essential resource: water.</p>
+      </div>
+    </div>
+  </article>
+</div>
+</section>
+<section id="problem"><div class="wrap"><div class="section-head"><div class="eyebrow">01 · The challenge</div><h2>One limited supply. Different household needs.</h2><p>Equal division may not reflect different requirements. FLOWGUARD investigates an alternative: protect essential needs when possible, then distribute remaining water according to unmet demand.</p></div>
+<div class="grid"><article class="card"><div class="icon">💧</div><h3>Limited supply</h3><p class="muted">The total available water may be lower than the combined demand.</p></article><article class="card"><div class="icon">🏠</div><h3>Different requirements</h3><p class="muted">Each model household has an essential requirement and a maximum total requirement.</p></article><article class="card"><div class="icon">⚖️</div><h3>Fairness is a choice</h3><p class="muted">Different allocation rules define fairness differently. We compare outcomes instead of assuming one method is always best.</p></article></div></div></section>
+<section id="model"><div class="wrap"><div class="section-head"><div class="eyebrow">02 · Mathematical model</div><h2>How FLOWGUARD allocates water</h2><p>For each household i, define essential need mᵢ, total need dᵢ and allocation xᵢ. Let S be the available supply.</p></div>
+<div class="grid"><article class="card"><span class="pill">Case A · Enough for essentials</span><h3>S ≥ M</h3><p class="muted">Give each household its essential need, then share the remaining supply in proportion to unmet total demand.</p><div class="formula">xᵢ = mᵢ + (S − M)(dᵢ − mᵢ)/(D − M)</div></article><article class="card"><span class="pill">Case B · Essential shortage</span><h3>S &lt; M</h3><p class="muted">Share the limited supply in proportion to essential requirements, so each household receives the same fraction of its essential need.</p><div class="formula">xᵢ = S × mᵢ / M</div></article><article class="card"><span class="pill">Case C · Surplus</span><h3>S ≥ D</h3><p class="muted">Meet each household's total stated demand. Any remaining supply is reported as surplus, not assigned unnecessarily.</p><div class="formula">xᵢ = dᵢ; surplus = S − D</div></article></div>
+<p class="small">M = sum of essential needs; D = sum of total needs. The model assumes known demands, divisible water and accurate measurements.</p></div></section>
+<section id="simulator"><div class="wrap"><div class="section-head"><div class="eyebrow">03 · Interactive laboratory</div><h2>Test the allocation methods</h2><p>Change the supply or household requirements. The simulator recalculates all three methods instantly.</p></div>
+<div class="sim-layout"><div class="card control"><h3>Experiment controls</h3><label for="supply">Available water <span class="number" id="supplyVal">60 L</span></label><input id="supply" type="range" min="0" max="140" step="1" value="60">
+<div id="houseControls"></div><p class="small">Requirements are adjustable model inputs. Keep essential need at or below total need.</p><button class="btn secondary" id="reset" type="button">Reset example</button></div>
+<div class="card"><div class="method-tabs" role="tablist"><button class="tab active" data-method="flow" type="button">FLOWGUARD</button><button class="tab" data-method="equal" type="button">Equal</button><button class="tab" data-method="prop" type="button">Demand-proportional</button></div><div id="methodTitle"><h3>FLOWGUARD allocation</h3><p class="small">Essential needs first, then proportional sharing.</p></div><div id="bars"></div><div class="stats"><div class="stat"><b id="used">60 L</b><span>Water allocated</span></div><div class="stat"><b id="unmet">0 L</b><span>Unmet essential need</span></div><div class="stat"><b id="coverage">4/4</b><span>Essential needs met</span></div></div></div></div>
+<div class="notice" style="margin-top:16px">Research note: a method can minimise total unmet essential need without maximising the number of households whose essential needs are completely met. These are different fairness measures.</div>
+</div></section>
+<section id="experiments"><div class="wrap"><div class="section-head"><div class="eyebrow">04 · Experiment log</div><h2>Five starting test conditions</h2><p>Using the initial model requirements: A = 30/40 L, B = 10/30 L, C = 5/20 L, D = 5/10 L (essential/total).</p></div>
+<div class="table-wrap"><table><thead><tr><th>Available supply</th><th>Purpose</th><th>Expected FLOWGUARD regime</th></tr></thead><tbody><tr><td>30 L</td><td>Severe shortage</td><td>Proportional essential allocation</td></tr><tr><td>45 L</td><td>Essential shortage</td><td>Proportional essential allocation</td></tr><tr><td>60 L</td><td>Limited supply</td><td>Essentials plus proportional remainder</td></tr><tr><td>80 L</td><td>Moderate supply</td><td>Essentials plus proportional remainder</td></tr><tr><td>120 L</td><td>Surplus supply</td><td>Meet total demand; report surplus</td></tr></tbody></table></div>
+<p class="small" style="margin-top:14px">These are planned simulation conditions, not physical experiment results. Record actual measurements separately when a prototype is tested.</p></div></section>
+<section id="team">
+<div class="wrap">
+  <div class="section-head">
+    <div class="eyebrow">The students · Class VIII-A</div>
+    <h2>Meet the FLOWGUARD team</h2>
+    <p>Three students, one shared goal: investigate a practical problem and explain the mathematics behind a possible solution.</p>
+  </div>
+  <div class="team-grid">
+    <article class="person">
+      <div class="initials">AR</div>
+      <h3>Abhijeet Ranjan</h3>
+      <div class="classline">Class 8 A</div>
+      <span class="role leader">TEAM LEADER</span>
+      <p class="muted" style="margin:14px 0 0">Coordinates the project, guides the research workflow and brings the team’s ideas together.</p>
+    </article>
+    <article class="person">
+      <div class="initials">AP</div>
+      <h3>Aksh Prajapati</h3>
+      <div class="classline">Class 8 A</div>
+      <span class="role">TEAM MEMBER</span>
+      <p class="muted" style="margin:14px 0 0">Contributes to planning, model development and testing the project’s working approach.</p>
+    </article>
+    <article class="person">
+      <div class="initials">SK</div>
+      <h3>Sumit Kumar</h3>
+      <div class="classline">Class 8 A</div>
+      <span class="role">TEAM MEMBER</span>
+      <p class="muted" style="margin:14px 0 0">Contributes to project construction, observations and presentation of the team’s findings.</p>
+    </article>
+  </div>
+  <div class="section-head" style="margin-top:58px">
+    <div class="eyebrow">Our project identity</div>
+    <h2>FLOWGUARD at a glance</h2>
+  </div>
+  <div class="grid">
+    <article class="card"><div class="icon">🎯</div><h3>Our objective</h3><p class="muted">Explore a transparent way to allocate limited water among households with different essential and total requirements.</p></article>
+    <article class="card"><div class="icon">🧮</div><h3>Our approach</h3><p class="muted">Use mathematical modelling, logical conditions and a simulator to compare allocation strategies.</p></article>
+    <article class="card"><div class="icon">🔬</div><h3>Our next step</h3><p class="muted">Validate the calculations, test a low-cost physical model and record observations before making real-world claims.</p></article>
+  </div>
+  <p class="notice" style="margin-top:20px">This website currently presents a proposed mathematical model and simulated calculations. It does not claim that FLOWGUARD is already a proven real-world water-distribution system or a nationally selected invention.</p>
+</div>
+</section>
+</main>
+<footer><div class="wrap footer-row"><span><strong>FLOWGUARD</strong> · RSBVP 2026–27 student project</span><span>PM SHRI Kendriya Vidyalaya Hinoo · Ranchi, Jharkhand</span></div></footer>
+<script>
+const defaults=[{name:'A',m:30,d:40},{name:'B',m:10,d:30},{name:'C',m:5,d:20},{name:'D',m:5,d:10}];
+let homes=defaults.map(x=>({...x})),supply=60,method='flow';
+const $=id=>document.getElementById(id);
+function makeControls(){ $('houseControls').innerHTML=homes.map((h,i)=>`<div style="border-top:1px solid var(--line);padding-top:9px;margin-top:10px"><strong>Household ${h.name}</strong><label>Essential need <span class="number" id="mval${i}">${h.m} L</span></label><input aria-label="Household ${h.name} essential need" type="range" min="0" max="80" value="${h.m}" id="m${i}"><label>Total need <span class="number" id="dval${i}">${h.d} L</span></label><input aria-label="Household ${h.name} total need" type="range" min="0" max="100" value="${h.d}" id="d${i}"></div>`).join('');
+homes.forEach((h,i)=>{ $('m'+i).addEventListener('input',e=>{h.m=Math.min(+e.target.value,h.d);e.target.value=h.m;$('mval'+i).textContent=h.m+' L';render()});$('d'+i).addEventListener('input',e=>{h.d=+e.target.value;h.m=Math.min(h.m,h.d);$('m'+i).value=h.m;$('mval'+i).textContent=h.m+' L';$('dval'+i).textContent=h.d+' L';render()})})}
+function alloc(){const M=homes.reduce((a,h)=>a+h.m,0),D=homes.reduce((a,h)=>a+h.d,0);let x=[];
+if(method==='flow'){if(supply<M){x=homes.map(h=>M?supply*h.m/M:0)}else if(supply>=D){x=homes.map(h=>h.d)}else{x=homes.map(h=>h.m+(D===M?0:(supply-M)*(h.d-h.m)/(D-M)))}} 
+if(method==='prop'){x=homes.map(h=>D?Math.min(h.d,supply*h.d/D):0);let left=supply-x.reduce((a,b)=>a+b,0);for(let k=0;k<5&&left>1e-8;k++){let active=homes.map((h,i)=>({i,room:h.d-x[i]})).filter(o=>o.room>1e-8);if(!active.length)break;let share=left/active.length;let used=0;active.forEach(o=>{let add=Math.min(share,o.room);x[o.i]+=add;used+=add});left-=used}}
+if(method==='equal'){x=homes.map(()=>0);let left=supply;for(let k=0;k<5&&left>1e-8;k++){let active=homes.map((h,i)=>({i,room:h.d-x[i]})).filter(o=>o.room>1e-8);if(!active.length)break;let share=left/active.length,used=0;active.forEach(o=>{let add=Math.min(share,o.room);x[o.i]+=add;used+=add});left-=used}}
+return x}
+function render(){supply=+$('supply').value;$('supplyVal').textContent=supply+' L';const x=alloc(),total=x.reduce((a,b)=>a+b,0),unmet=homes.reduce((a,h,i)=>a+Math.max(0,h.m-x[i]),0),met=homes.filter((h,i)=>x[i]+1e-8>=h.m).length;
+const titles={flow:['FLOWGUARD allocation','Essential requirements are prioritised when possible.'],equal:['Capped equal distribution','Water is shared equally, with demand caps and redistribution.'],prop:['Capped demand-proportional distribution','Water follows total demand, with caps and redistribution.']};$('methodTitle').innerHTML=`<h3>${titles[method][0]}</h3><p class="small">${titles[method][1]}</p>`;
+$('bars').innerHTML=x.map((v,i)=>`<div class="result-row"><span>Home ${homes[i].name}</span><div class="bar"><div class="fill" style="width:${Math.max(0,Math.min(100,homes[i].d?100*v/homes[i].d:0))}%"></div></div><strong>${v.toFixed(2)} L</strong></div>`).join('');
+$('used').textContent=total.toFixed(2)+' L';$('unmet').textContent=unmet.toFixed(2)+' L';$('coverage').textContent=met+'/'+homes.length;$('used').nextElementSibling.textContent='Water allocated · surplus '+Math.max(0,supply-total).toFixed(2)+' L'}
+$('supply').addEventListener('input',render);document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>{method=b.dataset.method;document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t===b));render()}));
+$('reset').addEventListener('click',()=>{homes=defaults.map(x=>({...x}));$('supply').value=60;method='flow';document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.method==='flow'));makeControls();render()});
+makeControls();render();
+</script>
+</body></html>
